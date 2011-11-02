@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.rlogiacco.soapui</groupId>
+  <artifactId>composite-project-converter</artifactId>
+  <packaging>maven-plugin</packaging>
+  <version>0.1.0</version>
+  <name>SoapUI Composite Project Converter Maven Mojo</name>
+  <url>http://maven.apache.org</url>
+  
+  <scm>
+    <connection>scm:git:git://github.com/rlogiacco/Maven-SoapUI-Deployer.git</connection>
+    <developerConnection>scm:git:https://rlogiacco@github.com/rlogiacco/Maven-SoapUI-Deployer.git</developerConnection>
+    <url>https://github.com/rlogiacco/Maven-SoapUI-Deployer</url>
+  </scm>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>eviware</groupId>
+      <version>4.0.0</version>
+      <artifactId>maven-soapui-pro-plugin</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>eviware-plugin-repository</id>
+      <url>http://www.eviware.com/repository/maven2/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+</project>
