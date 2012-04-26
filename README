@@ -1,0 +1,76 @@
+Maven SoapUI Deployer Plugin
+===================
+
+The Maven SoapUI Deployer Plugin allows you to automate generation of SoapUI artifacts in Maven.
+
+
+Usage
+-----
+
+### Add the plugin to your project
+
+* Add this fork's Maven repository to your project (or personal maven repo):
+
+  	<repository>
+			<id>Maven JMeter Plugin</id>
+			<url>http://yciabaud.github.com/jmeter-maven-plugin/repository</url>
+		</repository>
+
+* Add the plugin to the build section of your pom's project :
+
+		<plugin>
+			<groupId>org.rlogiacco.soapui</groupId>
+			<artifactId>composite-project-converter</artifactId>
+			<version>0.1.0</version>
+			<executions>
+        <execution>
+          <phase>generate-resources</phase>
+          <goals>
+            <goal>convert</goal>
+          </goals>
+        </execution>
+      </executions>
+      <configuration>
+        <projectDirectory>src/main/webapp/WEB-INF/soapui/your-soapui-project/</projectDirectory>
+        <outputFile>${project.build.directory}/soapui/project.xml</outputFile>
+      </configuration>
+		</plugin>
+
+I'll go over some of the options later.
+
+* Add the generated resources to the war build
+
+    <plugin>
+      <artifactId>maven-war-plugin</artifactId>
+      <configuration>
+        <webResources>
+          <resource>
+            <directory>${project.build.directory}/soapui</directory>
+            <targetPath>WEB-INF/soapui</targetPath>
+            <includes>
+              <include>project.xml</include>
+            </includes>
+          </resource>
+        </webResources>
+      </configuration>
+    </plugin>
+
+### Reference SoapUI project
+
+This one should be simple enough, unless you don't know about SoapUI.
+
+Options
+-------
+
+TBD
+
+
+Contributing
+------------
+
+1. Fork it.
+2. Create a branch (`git checkout -b my_plugin`)
+3. Commit your changes (`git commit -am "Added feature"`)
+4. Push to the branch (`git push origin my_plugin`)
+5. Create an [Issue][1] with a link to your branch
+6. Enjoy a refreshing Diet Coke and wait
